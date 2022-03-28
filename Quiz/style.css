@@ -1,0 +1,16 @@
+body{
+	background-color: indigo;
+	color: black;
+	font-size: 20px;
+	font-weight: bolder;
+	margin-left: 2rem;
+}
+p{
+	color: white;
+}
+#button{
+	background-color: black;
+	color: white;
+	font-size: 18px;
+	padding: 5px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Quiz</title>
+</head>
+<body>
+<div class="add">
+Enter Quiz Details:
+<br/> 
+
+Enter Question:
+<input type='text' id='question'/>
+<br/>
+Enter Answer:
+<input type='text' id='answer'/>
+<br/>
+<button id='addbtn'>Add</button>
+<br/>
+<button id='displaybtn'>Display</button>
+
+</div>
+
+<div class="main">
+
+
+</div>
+<button id='quizbtn'>Start Quiz</button>
+<div class="questiondiv">
+
+</div>
+<script> 
+var question=[];
+var answer=[];
+
+var addbtn=document.querySelector("#addbtn");
+var displaybtn=document.querySelector("#displaybtn");
+var quizbtn=document.querySelector("#quizbtn");
+quizbtn.style.display='none';
+var question_input=document.querySelector("#question");
+
+var answer_input=document.querySelector("#answer");
+
+addbtn.addEventListener('click',
+	()=>{
+		question.push(question_input.value);
+		answer.push(answer_input.value);
+			
+	}
+	);
+
+function display_quiz()
+{
+					var str="";
+				for(j=0;j<question.length;j++)
+				{
+					setTimeout(
+
+						()=>{
+							var questiondiv=document.querySelector(".questiondiv");
+							str="Question-"+(i+1)+" "+question[i]+"<br/>";
+							questiondiv.innerHTML=str;
+						}
+						,j*3000);
+				}
+
+}
+displaybtn.addEventListener('click',
+	()=>{
+		var str="";
+		for(i=0;i<question.length;i++)
+		{
+			str+="Question-"+(i+1)+" "+question[i]+"<br/>Answer:"+answer[i]+"<br/>";
+		}
+		var main=document.querySelector(".main");
+		main.innerHTML=str;
+		quizbtn.style.display='block';
+		quizbtn.addEventListener('click',
+			display_quiz
+			);
+	}
+	);
+
+</script>
+</body>
+</html>
